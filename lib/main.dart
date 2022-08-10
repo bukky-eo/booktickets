@@ -1,4 +1,5 @@
 import 'package:bookticket/screens/bottom_bar.dart';
+import 'package:bookticket/utilis/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: primary,
+      ),
       home: BottomBar(),
     );
   }
