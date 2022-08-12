@@ -1,11 +1,14 @@
 import 'package:bookticket/screens/hotel_screen.dart';
 import 'package:bookticket/screens/ticket_view.dart';
 import 'package:bookticket/utilis/info_list.dart';
+import 'package:bookticket/utilis/layout.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bookticket/utilis/constants.dart';
 import 'package:gap/gap.dart';
+
+import '../helpers/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Styles.bgColor,
       body: ListView(children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
           child: Column(
             children: [
               const Gap(40),
@@ -69,22 +72,9 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const Gap(40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Upcoming Flights',
-                    style: Styles.headLineStyle2,
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      'View all',
-                      style: Styles.textStyle.copyWith(color: primary),
-                    ),
-                  )
-                ],
-              ),
+              ViewAll(
+                text: 'Upcoming Flights',
+              )
             ],
           ),
         ),
@@ -101,24 +91,10 @@ class HomeScreen extends StatelessWidget {
         const Gap(15),
         Container(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Hotels',
-                  style: Styles.headLineStyle2,
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Text(
-                    'View all',
-                    style: Styles.textStyle.copyWith(color: primary),
-                  ),
-                )
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: ViewAll(
+                text: 'Hotels',
+              )),
         ),
         const Gap(15),
         SingleChildScrollView(
